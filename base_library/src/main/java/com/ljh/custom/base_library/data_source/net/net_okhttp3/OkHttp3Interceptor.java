@@ -1,6 +1,7 @@
 package com.ljh.custom.base_library.data_source.net.net_okhttp3;
 
 import com.ljh.custom.base_library.BuildConfig;
+import com.ljh.custom.base_library.ExamSDK;
 import com.ljh.custom.base_library.data_source.net.BaseLibraryAPIService;
 import com.ljh.custom.base_library.utils.Timber;
 
@@ -108,8 +109,9 @@ public class OkHttp3Interceptor implements Interceptor {
          * @see BaseLibraryAPIService#postDataReportTest(String)
          */
         if (!"true".equals(pRequest.header("not-token"))) {
-//            builder.setEncodedQueryParameter("access_token", mUserInfoProvider.getUserModel());
+            builder.setEncodedQueryParameter("token", ExamSDK.getToken());
         }
+        builder.setEncodedQueryParameter("UserType", ExamSDK.getUserType());
         return pRequest.newBuilder()
                 .method(pRequest.method(), pRequest.body())
                 .url(builder.build())

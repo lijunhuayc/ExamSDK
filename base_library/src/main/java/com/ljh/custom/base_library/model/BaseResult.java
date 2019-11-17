@@ -14,13 +14,13 @@ import java.net.URLDecoder;
  * Date: 2018/04/03 17:11
  */
 public class BaseResult<T> {
-    public static final int NOT_LOGIN = 1001;
-    public static final int STATUS_SUCCESS = 1;
+    public static final int NOT_LOGIN = 3000;
+    public static final int STATUS_SUCCESS = 200;
     public static final int STATUS_SERVICE_ERROR = -1;//服务器返回的错误码
     public static final int STATUS_INTERNAL_ERROR = -2;//内部回调处理异常错误码
     public static final int STATUS_NETWORK_FAILURE = -3;//网络连接失败
     public static final int STATUS_REPORT_CUSTOM_ERROR = -99;//数据上报解码异常
-    private int status;
+    private int errCode;
     private String errMsg;
     private String more;
     private boolean success;
@@ -37,7 +37,7 @@ public class BaseResult<T> {
     }
 
     public boolean isReturnSuccess() {
-//        return status == STATUS_SUCCESS;
+//        return errCode == STATUS_SUCCESS;
         return success;
     }
 
@@ -50,15 +50,15 @@ public class BaseResult<T> {
     }
 
     public boolean isNotLogin() {
-        return status == NOT_LOGIN;
+        return errCode == NOT_LOGIN;
     }
 
-    public int getStatus() {
-        return status;
+    public int getErrCode() {
+        return errCode;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setErrCode(int status) {
+        this.errCode = status;
     }
 
     public String getErrMsg() {
@@ -93,7 +93,7 @@ public class BaseResult<T> {
     @Override
     public String toString() {
         return "BaseResult{" +
-                "status=" + status +
+                "errCode=" + errCode +
                 ", errMsg='" + errMsg + '\'' +
                 ", more='" + more + '\'' +
                 ", page=" + page +

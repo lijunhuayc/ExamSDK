@@ -52,7 +52,7 @@ public class CustomResponseBodyConverter<T> implements Converter<ResponseBody, T
             if (TextUtils.isEmpty(result)) {
                 //解码错误时,构建一个"status=-2"的标准json格式返回
                 BaseResult<String> stringResult = new BaseResult<>();
-                stringResult.setStatus(BaseResult.STATUS_REPORT_CUSTOM_ERROR);
+                stringResult.setErrCode(BaseResult.STATUS_REPORT_CUSTOM_ERROR);
                 stringResult.setData(result);
                 stringResult.setErrMsg("解码错误");
                 return (T) stringResult;

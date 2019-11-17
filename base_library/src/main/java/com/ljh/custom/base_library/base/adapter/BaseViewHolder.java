@@ -2,6 +2,7 @@ package com.ljh.custom.base_library.base.adapter;
 
 import android.content.Context;
 import android.support.annotation.ColorRes;
+import android.support.annotation.IdRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -94,6 +95,10 @@ public abstract class BaseViewHolder<ITEM> extends RecyclerView.ViewHolder imple
         if (isVisible(view)) {
             view.setVisibility(View.GONE);
         }
+    }
+
+    protected <T extends View> T getView(@IdRes int id) {
+        return itemView.findViewById(id);
     }
 
     /**

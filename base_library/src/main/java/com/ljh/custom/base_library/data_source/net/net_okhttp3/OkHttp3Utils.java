@@ -9,6 +9,7 @@ import com.ljh.custom.base_library.data_source.net.WebAPI;
 import com.ljh.custom.base_library.domain.MainThreadScheduler;
 import com.ljh.custom.base_library.model.BaseResult;
 import com.ljh.custom.base_library.utils.MD5Utils;
+import com.ljh.custom.base_library.utils.MyToast;
 import com.ljh.custom.base_library.utils.Timber;
 
 import java.io.IOException;
@@ -110,13 +111,14 @@ public class OkHttp3Utils implements IHttpUtils {
                                             if (object.isSuccess()) {
                                                 requestCallBack.onSuccess(result);
                                             } else {
-                                                if (object.getStatus() == BaseResult.NOT_LOGIN) {
+                                                if (object.getErrCode() == BaseResult.NOT_LOGIN) {
+                                                    MyToast.showToast("token失效");
 //                                                    ARouter.getInstance().build(RouterTable.USERINFO_LOGIN_ACTIVITY)
 //                                                            .withFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
 //                                                            .navigation(BaseLibraryApplication.getApplication());
                                                     return;
                                                 } else {
-                                                    requestCallBack.onResponseError(object.getStatus(), object.getErrMsg());
+                                                    requestCallBack.onResponseError(object.getErrCode(), object.getErrMsg());
                                                 }
                                             }
                                         } else {

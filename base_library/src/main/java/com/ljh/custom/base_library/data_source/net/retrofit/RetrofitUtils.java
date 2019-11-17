@@ -116,15 +116,16 @@ public class RetrofitUtils {
                     onSuccess(baseResult.getData());
                 } else {
                     Timber.d("RetrofitCallback.onResponse: error. more = %s", baseResult.getMore());
-                    switch (baseResult.getStatus()) {
+                    switch (baseResult.getErrCode()) {
                         case BaseResult.NOT_LOGIN:
+                            MyToast.showToast("token失效");
 //                            ARouter.getInstance().build(RouterTable.USERINFO_LOGIN_ACTIVITY)
 //                                    .withFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
 //                                    .withFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 //                                    .navigation(BaseLibraryApplication.getApplication());
                             break;
                         default:
-                            onError(baseResult.getStatus(), baseResult.getErrMsg());
+                            onError(baseResult.getErrCode(), baseResult.getErrMsg());
                             break;
                     }
                 }

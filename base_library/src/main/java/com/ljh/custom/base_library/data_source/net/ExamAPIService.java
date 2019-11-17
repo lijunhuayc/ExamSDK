@@ -1,7 +1,10 @@
 package com.ljh.custom.base_library.data_source.net;
 
 import com.ljh.custom.base_library.model.BaseResult;
+import com.ljh.custom.base_library.model.ExamItemModel;
 import com.ljh.custom.base_library.model.SystemConfigModel;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -22,7 +25,12 @@ public interface ExamAPIService {
 //    Call<BaseResult<SystemConfigModel>> findAllExam(@Query("currentPage") String currentPage,@Query("pageSize") String pageSize);
 
     /**
-     *
+     * @return
+     */
+    @GET("api/examTable/findExamList")
+    Call<BaseResult<List<ExamItemModel>>> findExamList(@Query("currentPage") int currentPage, @Query("pageSize") int pageSize, @Query("userId") String userId);
+
+    /**
      * @param currentPage
      * @param pageSize
      * @param authType
@@ -30,7 +38,7 @@ public interface ExamAPIService {
      * @param paperNum
      * @param problemCount
      * @param title
-     * @param type 0-模拟卷， 1-考试卷, 2-vip
+     * @param type         0-模拟卷， 1-考试卷, 2-vip
      * @return
      */
     @GET(" /api/paper/findAllPaper?")
