@@ -56,7 +56,7 @@ public class ExamListFragment extends LazyBaseFragment {
             @Override
             public void onItemClick(View itemView, int position) {
                 ExamItemModel model = (ExamItemModel) mAdapter.getDatas().get(position);
-                if(model.isShop()){
+                if (model.isShop()) {
 
                 }
 
@@ -90,7 +90,8 @@ public class ExamListFragment extends LazyBaseFragment {
             @Override
             public void onSuccess(List<ExamItemModel> model) {
                 Timber.d("model = %s", model);
-                // TODO: 2019/11/17
+                // TODO: 2019/11/17 接口不通 & 选择企业的数据在哪里？ & 暂停
+
 
                 mCurrentPage = currentPage;
             }
@@ -107,6 +108,8 @@ public class ExamListFragment extends LazyBaseFragment {
 
             @Override
             public void onFinish() {
+                smartRefreshLayout.finishRefresh();
+                smartRefreshLayout.finishLoadMore();
                 hideProgressView();
             }
         });

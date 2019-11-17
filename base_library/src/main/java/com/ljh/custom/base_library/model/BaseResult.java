@@ -27,6 +27,7 @@ public class BaseResult<T> {
     private PageBean page;
     @SerializedName(value = "data", alternate = {"datas", "list"})
     private T data;
+    private boolean hasNextPage;
 
     public void setData(T pData) {
         data = pData;
@@ -88,6 +89,14 @@ public class BaseResult<T> {
 
     public void setPage(PageBean page) {
         this.page = page;
+    }
+
+    public boolean isHasNextPage() {
+        return hasNextPage;
+    }
+
+    public void setHasNextPage(boolean pHasNextPage) {
+        hasNextPage = pHasNextPage;
     }
 
     @Override

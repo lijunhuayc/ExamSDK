@@ -112,6 +112,7 @@ public class RetrofitUtils {
             Timber.d("RetrofitCallback.onResponse: result(处理后) = %s", baseResult);//需要Bean/Model类实现toString方法才能完全打印data字段的对象信息
             try {
                 if (baseResult.isSuccess()) {
+//                    PageBean pageBean = executePage(baseResult);
                     onGetPage(baseResult.getPage());
                     onSuccess(baseResult.getData());
                 } else {
@@ -125,9 +126,9 @@ public class RetrofitUtils {
 //                                    .navigation(BaseLibraryApplication.getApplication());
                             break;
                         default:
-                            onError(baseResult.getErrCode(), baseResult.getErrMsg());
                             break;
                     }
+                    onError(baseResult.getErrCode(), baseResult.getErrMsg());
                 }
             } catch (Exception e) {
                 Timber.d("RetrofitCallback.onResponse: exception = %s", e.getMessage());
@@ -136,6 +137,12 @@ public class RetrofitUtils {
             }
             onFinish();
         }
+
+//        private PageBean executePage(BaseResult pBaseResult){
+//            PageBean pageBean = new PageBean();
+//
+//            return pageBean;
+//        }
 
         @Override
         public void onFailure(Call<BaseResult<RESULT>> call, Throwable t) {

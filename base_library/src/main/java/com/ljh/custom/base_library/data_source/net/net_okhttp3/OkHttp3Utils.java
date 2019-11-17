@@ -118,8 +118,9 @@ public class OkHttp3Utils implements IHttpUtils {
 //                                                            .navigation(BaseLibraryApplication.getApplication());
                                                     return;
                                                 } else {
-                                                    requestCallBack.onResponseError(object.getErrCode(), object.getErrMsg());
+//                                                    requestCallBack.onResponseError(object.getErrCode(), object.getErrMsg());
                                                 }
+                                                requestCallBack.onResponseError(object.getErrCode(), object.getErrMsg());
                                             }
                                         } else {
                                             requestCallBack.onSuccess(result);//非BaseObject类型暂定success // TODO: 2017/07/04
