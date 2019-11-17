@@ -1,0 +1,43 @@
+//only be applied by app module gradle
+android {
+    defaultConfig {
+        flavorDimensions "default"
+    }
+
+    productFlavors {
+//        //Tips: inside the module can't configure the productFlavors, otherwise the class & resourse can't be import.
+//        TEST200 { dimension "default" }
+//        TEST210 { dimension "default" }
+        channel_mine { dimension "default" }//官方
+//        baidu { dimension "default" }
+//        market91 { dimension "default" }
+//        anzuo { dimension "default" }
+//        xiaomi { dimension "default" }
+//        huawei { dimension "default" }
+//        market360 { dimension "default" }
+//        yinyongbao { dimension "default" }
+//        wandoujia { dimension "default" }
+//        oppo { dimension "default" }
+//        vivo { dimension "default" }
+//        sumsang { dimension "default" }
+//        meizu { dimension "default" }
+
+        productFlavors.all {
+            flavor ->
+                flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+    }
+
+    applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                def flavorName = variant.productFlavors.get(0).name
+                def developV = variant.buildType.name
+                outputFileName = "exam_v${variant.versionName}_${flavorName}_${developV}_c${variant.versionCode}.apk"
+            }
+    }
+}
+
+def releaseTime() {
+    return new Date().format("yyyy", TimeZone.getTimeZone("UTC"))
+}

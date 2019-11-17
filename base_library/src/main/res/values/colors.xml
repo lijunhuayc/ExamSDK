@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- created by lijunhua -->
+    <color name="library_half_translucent">#34E5E5E5</color>
+
+    <!-- created by lijunhua -->
+    <color name="commonColorBrand" tools:ignore="ResourceName">#24345a</color>
+    <color name="commonColorBrandDark" tools:ignore="ResourceName">#24314a</color>
+    <color name="commonColorLightBlue" tools:ignore="ResourceName">#02e1ff</color>
+    <color name="commonColorRed" tools:ignore="ResourceName">#f22d2d</color>
+    <color name="commonColorOrange" tools:ignore="ResourceName">#FF8712</color>
+    <color name="commonColorLightYellow" tools:ignore="ResourceName">#FFA030</color>
+    <color name="commonColorButtonBlue" tools:ignore="ResourceName">#26aff3</color>
+    <color name="commonColorButtonDisabled" tools:ignore="ResourceName">#e4e4e4</color>
+    <color name="commonColorModuleDivided" tools:ignore="ResourceName">#f2f2f2</color>
+    <color name="commonColorContentDivided" tools:ignore="ResourceName">#eeeeee</color>
+    <color name="commonColorWhite" tools:ignore="ResourceName">#FFFFFF</color>
+    <color name="commonTextColorDisabled" tools:ignore="ResourceName">#c9c9c9</color>
+    <color name="commonTextColorBigPrimary" tools:ignore="ResourceName">#202020</color>
+    <color name="commonTextColorPrimary" tools:ignore="ResourceName">#363636</color>
+    <color name="commonTextColorSecond" tools:ignore="ResourceName">#969696</color>
+    <color name="commonTextColorHint" tools:ignore="ResourceName">#c5c5c5</color>
+    <color name="commonItemPressedColor" tools:ignore="ResourceName">#F8F8F8</color>
+    <color name="commonColorTranslucency" tools:ignore="ResourceName">#a6000000</color>
+
+</resources>

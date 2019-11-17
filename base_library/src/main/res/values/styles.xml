@@ -1,0 +1,62 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar" tools:ignore="ResourceName">
+        <!-- all activity theme base -->
+        <!--<item name="colorPrimary">@color/commonColorBrand</item>-->
+        <!--<item name="colorPrimaryDark">@color/commonColorBrandDark</item>-->
+        <item name="android:textColorPrimary">@color/commonTextColorPrimary</item>
+        <item name="colorAccent">@android:color/black</item>
+        <item name="android:windowBackground">@android:color/white</item><!-- 页面底色 -->
+        <item name="android:windowAnimationStyle">@style/activitySwitchDefaultAnim</item>
+        <item name="actionSheetStyle">@style/ActionSheetStyleIOS7</item>
+    </style>
+
+    <style name="MyAppTheme" parent="BaseTheme" tools:ignore="ResourceName">
+        <!-- 为沉浸式预留Theme-->
+    </style>
+
+    <style name="AppStartTheme" parent="@style/Theme.AppCompat.Light.NoActionBar" tools:ignore="ResourceName">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="activitySwitchDefaultAnim" parent="@android:style/Animation.Activity" tools:ignore="ResourceName">
+        <item name="android:activityOpenEnterAnimation">@anim/ios_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/ios_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/ios_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/ios_out_right</item>
+        <item name="android:taskOpenEnterAnimation">@anim/ios_in_right</item>
+        <item name="android:taskOpenExitAnimation">@anim/ios_out_left</item>
+        <item name="android:taskCloseEnterAnimation">@anim/ios_in_left</item>
+        <item name="android:taskCloseExitAnimation">@anim/ios_out_right</item>
+        <item name="android:taskToFrontEnterAnimation">@anim/ios_in_down</item>
+        <item name="android:taskToFrontExitAnimation">@anim/ios_out_up</item>
+        <item name="android:taskToBackEnterAnimation">@anim/ios_in_up</item>
+        <item name="android:taskToBackExitAnimation">@anim/ios_out_down</item>
+        <!--
+        <item name="android:wallpaperOpenEnterAnimation">@anim/ios_out_down</item>
+        -->
+        <item name="android:wallpaperOpenExitAnimation">@anim/ios_out_down</item>
+        <item name="android:wallpaperCloseEnterAnimation">@anim/ios_in_down</item>
+        <!--
+        <item name="android:wallpaperCloseExitAnimation">@anim/bottom_bar_in</item>
+        -->
+        <item name="android:wallpaperIntraOpenExitAnimation">@anim/ios_out_down</item>
+        <item name="android:wallpaperIntraCloseEnterAnimation">@anim/ios_in_down</item>
+        <!--
+        <item name="android:wallpaperIntraOpenEnterAnimation">@anim/bottom_bar_in</item>
+        <item name="android:wallpaperIntraCloseExitAnimation">@anim/bottom_bar_in</item>
+        -->
+        <item name="android:fragmentOpenEnterAnimation">@anim/ios_in_right</item>
+        <item name="android:fragmentOpenExitAnimation">@anim/ios_out_left</item>
+        <item name="android:fragmentCloseEnterAnimation">@anim/ios_in_left</item>
+        <item name="android:fragmentCloseExitAnimation">@anim/ios_out_right</item>
+        <item name="android:fragmentFadeEnterAnimation">@anim/ios_in_right</item>
+        <item name="android:fragmentFadeExitAnimation">@anim/ios_out_left</item>
+        <!--
+        -->
+    </style>
+</resources>

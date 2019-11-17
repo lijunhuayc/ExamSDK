@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="56dp"
+    android:layout_marginRight="56dp"
+    android:background="@drawable/cool_dialog_out_radius_10dp_drawable"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/coolDialogTitleLL"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <!--        <ImageView
+                android:id="@+id/coolDialogIconIV"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/dialog_icon"
+                android:visibility="gone"
+                tools:visibility="visible" />-->
+
+        <TextView
+            android:id="@+id/coolDialogTitleTV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:maxLines="1"
+            android:text="提示"
+            android:textColor="#202020"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="14dp"
+            android:paddingTop="12dp">
+
+            <FrameLayout
+                android:id="@+id/coolDialogContentFL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/coolPaddingHorizontal"
+                android:paddingRight="@dimen/coolPaddingHorizontal"
+                android:visibility="visible"
+                tools:background="#00dd0000"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/coolDialogMessageTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="14dp"
+                    android:gravity="center"
+                    android:maxHeight="300dp"
+                    android:textColor="#202020"
+                    android:textSize="11sp"
+                    tools:drawableTop="@drawable/library_test_message_icon"
+                    tools:lineSpacingExtra="6dp"
+                    tools:text="您企业认证是已认证待完善状态\n无法使用该功能，请完善资料！"
+                    tools:visibility="visible" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/coolDialogCustomContentFL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="@dimen/coolPaddingHorizontal"
+                android:paddingRight="@dimen/coolPaddingHorizontal"
+                android:visibility="gone"
+                tools:background="#0056FF00"
+                tools:visibility="gone">
+
+                <!--<EditText-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="37dp"-->
+                <!--android:background="#f5f5f5"-->
+                <!--android:hint="不要怕,只要信"-->
+                <!--android:paddingLeft="8dp"-->
+                <!--android:paddingRight="8dp"-->
+                <!--android:textColor="#202020"-->
+                <!--android:textColorHint="#969696"-->
+                <!--android:textSize="13sp" />-->
+            </FrameLayout>
+        </FrameLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/coolDialogButtonLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="11dp"
+        android:paddingLeft="@dimen/coolPaddingHorizontal"
+        android:paddingRight="@dimen/coolPaddingHorizontal"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/coolDialogNegativeBT"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:background="@drawable/cool_dialog_negative_bt_drawable"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:textColor="#24345a"
+            android:textSize="11sp"
+            android:visibility="gone"
+            tools:text="取消取消取消取消取消取消"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/coolDialogPositiveBT"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/cool_dialog_positive_bt_drawable"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            android:visibility="gone"
+            tools:text="确定确定确定确定确定确定"
+            tools:visibility="visible" />
+    </LinearLayout>
+</LinearLayout>

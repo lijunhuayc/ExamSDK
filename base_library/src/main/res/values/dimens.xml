@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- created by lijunhua -->
+    <dimen name="common_content_padding_horizontal" tools:ignore="ResourceName">16dp</dimen>
+    <dimen name="common_content_padding_horizontal_second" tools:ignore="ResourceName">13dp</dimen>
+    <!-- created by lijunhua -->
+</resources>

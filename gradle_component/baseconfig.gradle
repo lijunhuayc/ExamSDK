@@ -1,0 +1,68 @@
+// can be applied by every child module. 各个组件所使用的基本配置。定义在此。便于对多版本进行统一修改更新
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION
+    buildToolsVersion BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSION
+        versionCode 5
+        versionName "1.5"
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    compileOptions {
+        encoding "UTF-8"
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+//    signingConfigs {
+//        release {
+//            storeFile file('cheku.keystore')
+//            storePassword 'rx@)!^2016'
+//            keyAlias 'cheku.keystore'
+//            keyPassword 'rx@)!^2016'
+//        }
+//        debug {
+//            storeFile file('cheku.keystore')
+//            storePassword 'rx@)!^2016'
+//            keyAlias 'cheku.keystore'
+//            keyPassword 'rx@)!^2016'
+//        }
+//    }
+
+    buildTypes {
+        release {
+//            signingConfig signingConfigs.release
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+            ndk {
+                abiFilters "armeabi", "armeabi-v7a"
+            }
+        }
+
+        debug {
+//            signingConfig signingConfigs.debug
+            versionNameSuffix "-beta1"
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+            ndk {
+                abiFilters "armeabi", "armeabi-v7a"
+            }
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}

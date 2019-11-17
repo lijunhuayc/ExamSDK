@@ -1,0 +1,11 @@
+// can be applied by every child module. ButterKnife 配置抽离
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    defaultConfig {
+    }
+}
+
+dependencies {
+    annotationProcessor "${THIRD_LIBS.butterknife_compiler}"
+}

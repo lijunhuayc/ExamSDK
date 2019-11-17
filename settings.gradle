@@ -1,0 +1,11 @@
+include ':app', ':base_library'
+include ':cool_dialog'/*, 'ViewPagerIndicator', 'SwipeBackLayoutLibrary', ':sharesdk', ':jpush', ':kotterknife'*/
+
+project(':cool_dialog').projectDir = new File('third_library/cool_dialog')
+//project(':ViewPagerIndicator').projectDir = new File('third_library/ViewPagerIndicator')
+//project(':SwipeBackLayoutLibrary').projectDir = new File('third_library/SwipeBackLayoutLibrary')
+//project(':sharesdk').projectDir = new File('third_library/sharesdk')
+//project(':jpush').projectDir = new File('third_library/jpush')
+//project(':kotterknife').projectDir = new File('third_library/kotterknife')
+
+rootProject.name='ExamSDK'

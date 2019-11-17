@@ -1,0 +1,15 @@
+apply plugin: 'com.android.library'
+apply from: "../../gradle_component/baseconfig.gradle"
+
+android {
+    defaultConfig {
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "${SUPPORTDEPS.appcompatV7}"
+    implementation "${SUPPORTDEPS.design}"
+}

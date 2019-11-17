@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- created by lijunhua -->
+    <dimen name="coolPaddingHorizontal">16dp</dimen>
+    <dimen name="coolSizeBold">18sp</dimen>
+    <dimen name="coolSizeBigPrimary">15sp</dimen>
+    <dimen name="coolSizePrimary">14sp</dimen>
+    <dimen name="coolSizeSecond">12sp</dimen>
+    <dimen name="coolSizeTag">11sp</dimen>
+    <dimen name="coolSizeMini">10sp</dimen>
+    <!-- created by lijunhua -->
+</resources>

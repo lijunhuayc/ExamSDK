@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="LibraryTitleView">
+        <attr name="library_background_color" format="color" />
+        <attr name="library_back_tips_enable" format="boolean" />
+        <attr name="library_back_icon" format="reference" />
+        <attr name="library_title_content" format="string" />
+        <attr name="library_title_content_drawable_right" format="reference" />
+        <attr name="library_title_color" format="color" />
+        <attr name="library_title_size" format="dimension" />
+        <attr name="library_menu_text" format="string" />
+        <attr name="library_menu_text_color" format="color" />
+        <attr name="library_menu_text_drawable_left" format="reference" />
+        <attr name="library_menu_icon1" format="reference" />
+        <attr name="library_menu_icon2" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="AlignTextView" tools:ignore="ResourceName">
+        <attr name="alignOnlyOneLine" format="boolean" />
+    </declare-styleable>
+</resources>
