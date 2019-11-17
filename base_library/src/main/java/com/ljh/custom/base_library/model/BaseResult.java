@@ -21,8 +21,9 @@ public class BaseResult<T> {
     public static final int STATUS_NETWORK_FAILURE = -3;//网络连接失败
     public static final int STATUS_REPORT_CUSTOM_ERROR = -99;//数据上报解码异常
     private int status;
-    private String msg;
+    private String errMsg;
     private String more;
+    private boolean success;
     private PageBean page;
     @SerializedName(value = "data", alternate = {"datas", "list"})
     private T data;
@@ -36,7 +37,16 @@ public class BaseResult<T> {
     }
 
     public boolean isReturnSuccess() {
-        return status == STATUS_SUCCESS;
+//        return status == STATUS_SUCCESS;
+        return success;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean pSuccess) {
+        success = pSuccess;
     }
 
     public boolean isNotLogin() {
@@ -51,12 +61,12 @@ public class BaseResult<T> {
         this.status = status;
     }
 
-    public String getMsg() {
-        return msg;
+    public String getErrMsg() {
+        return errMsg;
     }
 
-    public void setMsg(String message) {
-        this.msg = message;
+    public void setErrMsg(String message) {
+        this.errMsg = message;
     }
 
     public String getMore() {
@@ -84,7 +94,7 @@ public class BaseResult<T> {
     public String toString() {
         return "BaseResult{" +
                 "status=" + status +
-                ", msg='" + msg + '\'' +
+                ", errMsg='" + errMsg + '\'' +
                 ", more='" + more + '\'' +
                 ", page=" + page +
                 ", data=" + data +

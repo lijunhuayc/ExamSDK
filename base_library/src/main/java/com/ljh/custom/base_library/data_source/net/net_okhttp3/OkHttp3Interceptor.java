@@ -108,7 +108,7 @@ public class OkHttp3Interceptor implements Interceptor {
          * @see BaseLibraryAPIService#postDataReportTest(String)
          */
         if (!"true".equals(pRequest.header("not-token"))) {
-//            builder.setEncodedQueryParameter("access_token", mUserInfoProvider.getToken());
+//            builder.setEncodedQueryParameter("access_token", mUserInfoProvider.getUserModel());
         }
         return pRequest.newBuilder()
                 .method(pRequest.method(), pRequest.body())

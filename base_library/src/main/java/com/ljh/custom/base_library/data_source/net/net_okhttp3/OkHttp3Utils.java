@@ -107,7 +107,7 @@ public class OkHttp3Utils implements IHttpUtils {
                                     if (null != result) {
                                         if (result instanceof BaseResult) {
                                             BaseResult object = (BaseResult) result;
-                                            if (object.isReturnSuccess()) {
+                                            if (object.isSuccess()) {
                                                 requestCallBack.onSuccess(result);
                                             } else {
                                                 if (object.getStatus() == BaseResult.NOT_LOGIN) {
@@ -116,7 +116,7 @@ public class OkHttp3Utils implements IHttpUtils {
 //                                                            .navigation(BaseLibraryApplication.getApplication());
                                                     return;
                                                 } else {
-                                                    requestCallBack.onResponseError(object.getStatus(), object.getMsg());
+                                                    requestCallBack.onResponseError(object.getStatus(), object.getErrMsg());
                                                 }
                                             }
                                         } else {
@@ -177,6 +177,7 @@ public class OkHttp3Utils implements IHttpUtils {
             params = Maps.newHashMap();
         }
         params.put("token", ExamSDK.getToken());
+        params.put("UserType", ExamSDK.getUserType());
         return params;
     }
 
@@ -185,7 +186,7 @@ public class OkHttp3Utils implements IHttpUtils {
         if (method == HttpUtils.Method.METHOD_GET || method == HttpUtils.Method.METHOD_DELETE) {
             url = WebAPI.buildGetURL(url, params);
         } else {
-            url = url + "?token=" + ExamSDK.getToken();
+            url = url + "?token=" + ExamSDK.getToken() + "&UserType=" + ExamSDK.getUserType();
             Timber.d("api_params: %s", gson.toJson(params));
         }
         Timber.d("api_url: %s", url);

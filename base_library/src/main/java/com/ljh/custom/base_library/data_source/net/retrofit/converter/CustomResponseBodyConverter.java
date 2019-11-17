@@ -54,7 +54,7 @@ public class CustomResponseBodyConverter<T> implements Converter<ResponseBody, T
                 BaseResult<String> stringResult = new BaseResult<>();
                 stringResult.setStatus(BaseResult.STATUS_REPORT_CUSTOM_ERROR);
                 stringResult.setData(result);
-                stringResult.setMsg("解码错误");
+                stringResult.setErrMsg("解码错误");
                 return (T) stringResult;
             }
         }

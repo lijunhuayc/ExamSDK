@@ -6,7 +6,6 @@ import com.ljh.custom.base_library.BuildConfig;
 import com.ljh.custom.base_library.data_source.SharedPreferencesUtils;
 import com.ljh.custom.base_library.utils.Timber;
 
-import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
@@ -19,19 +18,15 @@ import static com.ljh.custom.base_library.data_source.SharedPreferencesUtils.Key
  * Date: 2018/09/18 11:43
  */
 public class WebAPI {
-    public static String HOST_IP = "http://sc.yicheku.com.cn";//服务器地址
-    public static String PORT = ":8060";
+    public static String HOST_IP = "http://120.27.69.108";//服务器地址
+    public static String PORT = ":8080";
     //接口模块前缀
     public static String HOST = HOST_IP + PORT;//服务器地址器地址
-    public static final String PICTURE_HOST = "http://oss2.yicheku.com.cn";//图片服务器地址
-    public static final String STATIC_WEB_HOST = "http://oss2.yicheku.com.cn";//静态网页域名
-    public static String STATISTICS_HOST = "http://statistics.yicheku.com.cn:41180";//统计服务
-    public static final String UPLOAD_APP_HOST = "http://oss2.yicheku.com.cn";//APP更新
-    public static final String WEB_ARTICLE_HOST = "http://api2.yicheku.com.cn";//服务器地址
+    //    public static final String PICTURE_HOST = "http://oss2.yicheku.com.cn";//图片服务器地址
     // 聊天服务器
-    public static final String DOMAIN_DEV_200 = "http://192.168.2.200";//开发环境200
-    public static final String DOMAIN_TEST_210 = "http://192.168.2.210";//测试环境210
-    public static final String DOMAIN_TEST_RELEASE = "http://sc.yicheku.com.cn";//线上测试地址
+    public static final String DOMAIN_DEV_200 = "http://120.27.69.108";//开发环境200
+    public static final String DOMAIN_TEST_210 = "http://test210";//测试环境210
+    public static final String DOMAIN_TEST_RELEASE = "http://test_release";//线上测试地址
     private static final String BUILD_DOMAIN = DOMAIN_DEV_200;
 
     static {
@@ -63,24 +58,23 @@ public class WebAPI {
 
     private static void resetInit() {
         HOST = HOST_IP + PORT;
-        STATISTICS_HOST = HOST_IP + ":41180";
     }
 
-    public static String convertPicURL(String picURL) {
-        if (TextUtils.isEmpty(picURL)) {
-            return "";
-        }
-        if (picURL.startsWith("http")) {
-            return picURL;
-        } else {
-            File file = new File(picURL);
-            if (file.exists()) {
-                return "file://" + picURL;
-            } else {
-                return PICTURE_HOST + picURL;
-            }
-        }
-    }
+//    public static String convertPicURL(String picURL) {
+//        if (TextUtils.isEmpty(picURL)) {
+//            return "";
+//        }
+//        if (picURL.startsWith("http")) {
+//            return picURL;
+//        } else {
+//            File file = new File(picURL);
+//            if (file.exists()) {
+//                return "file://" + picURL;
+//            } else {
+//                return PICTURE_HOST + picURL;
+//            }
+//        }
+//    }
 
     /**
      * 构建 GET 方式请求 URL

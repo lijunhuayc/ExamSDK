@@ -10,8 +10,6 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
-import static com.ljh.custom.base_library.data_source.net.APIVersionPath.BASE_API_VERSION;
-
 /**
  * Desc:
  * Created by Junhua.Li
@@ -54,13 +52,12 @@ public interface BaseLibraryAPIService {
     @POST("http://192.168.2.200:41180/statistics_v1_0_0/new/report/event/upload")
     Call<BaseResult<String>> postDataReportTest200(@Body String bodyContent);
 
-
     /**
      * 获取系统上报配置表
      *
      * @return
      */
     @Headers({"not-token:true"})
-    @GET(BASE_API_VERSION + "sysConfig/getByConfigKey")
+    @GET("sysConfig/getByConfigKey")
     Call<BaseResult<SystemConfigModel>> getSystemConfig(@Query("configKey") String configKey);
 }

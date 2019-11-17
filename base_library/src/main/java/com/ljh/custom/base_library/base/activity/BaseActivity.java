@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -38,6 +39,9 @@ import com.ljh.custom.cooldialog.CoolLoadingDialog;
 import java.lang.reflect.Field;
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * Desc: 通用Activity基类, 所有业务Activity应该继承于此类或者此类的派生类
  * Created by ${junhua.li} on 2017/06/15 10:18.
@@ -49,7 +53,7 @@ public abstract class BaseActivity extends BasePermissionActivity {
     public Context mContext;
     public LayoutInflater mLayoutInflater;
     public Handler mHandler = new Handler();
-//    private Unbinder mUnBinder;
+    private Unbinder mUnBinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +65,14 @@ public abstract class BaseActivity extends BasePermissionActivity {
         mContext = this;
         mLayoutInflater = getLayoutInflater();
         setContentView();
-//        mUnBinder = ButterKnife.bind(this);
-//        ARouter.getInstance().inject(this);
-//        SwipeBackLayout mSwipeBackLayout = getSwipeBackLayout();
-//        mSwipeBackLayout.setEdgeTrackingEnabled(isSwipeBack() ? SwipeBackLayout.EDGE_LEFT : -1);
+        mUnBinder = ButterKnife.bind(this);
         mCoolLoadingDialog = new CoolLoadingDialog.Builder(this).setMessage("努力加载中").setCancelable(false).create();
         initUI();
         onCreated();
+    }
+
+    protected  <T extends View> T getView(@IdRes int id) {
+        return findViewById(id);
     }
 
     private void setContentView() {
@@ -79,10 +84,6 @@ public abstract class BaseActivity extends BasePermissionActivity {
     protected abstract void initUI();
 
     protected abstract void onCreated();
-
-//    protected boolean isSwipeBack() {
-//        return true;
-//    }
 
     public interface KeyBoardVisibleChangeCallBack {
         void callBack(boolean visible, int height);
@@ -170,7 +171,7 @@ public abstract class BaseActivity extends BasePermissionActivity {
     @Override
     protected void onDestroy() {
         Log.d("life_" + TAG, "onDestroy()");
-//        mUnBinder.unbind();
+        mUnBinder.unbind();
         mHandler.removeCallbacksAndMessages(null);
         LocalActivityManager.getInstance().remove(this);
         super.onDestroy();

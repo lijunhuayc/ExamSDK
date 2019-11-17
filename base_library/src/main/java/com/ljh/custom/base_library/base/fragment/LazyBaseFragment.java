@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ljh.custom.base_library.data_report.ReportDataService;
-
 /**
  * Desc: [将setUserVisibleHint和onHiddenChanged抽象封装]
  * Desc: 延迟加载数据可使用此抽象类使用 lazyLoad方法延迟加载数据并使用isLazyLoaded标记延迟加载成功

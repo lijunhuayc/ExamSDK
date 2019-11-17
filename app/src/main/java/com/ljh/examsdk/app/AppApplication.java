@@ -17,6 +17,10 @@ import com.ljh.custom.base_library.model.AppInfoModel;
 import com.ljh.custom.base_library.utils.FileUtils;
 import com.ljh.custom.base_library.utils.MyToast;
 import com.ljh.custom.base_library.utils.Timber;
+import com.ljh.examsdk.R;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 
 import static com.ljh.custom.base_library.data_source.SharedPreferencesUtils.Key.SP_KEY_CHANNEL_NAME;
 import static com.ljh.custom.base_library.utils.FileUtils.FRESCO_CACHE_DIR;
@@ -30,20 +34,20 @@ public class AppApplication extends Application {
     private static Application sApplication;
 
     static {
-//        SmartRefreshLayout.setDefaultRefreshHeaderCreator((context, layout) -> {
-//            layout.setPrimaryColorsId(android.R.color.white, R.color.commonColorBrand);
-//            return new ClassicsHeader(context)
-//                    .setTextSizeTitle(12)
-//                    .setTextSizeTime(9)
-//                    .setDrawableSize(15)
-//                    ;
-//        });
-//        SmartRefreshLayout.setDefaultRefreshFooterCreator((context, layout) -> {
-//            layout.setPrimaryColorsId(android.R.color.white, R.color.commonColorBrand);
-//            return new ClassicsFooter(context)
-//                    .setTextSizeTitle(12)
-//                    .setDrawableSize(15);
-//        });
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator((context, layout) -> {
+            layout.setPrimaryColorsId(android.R.color.white, R.color.commonColorBrand);
+            return new ClassicsHeader(context)
+                    .setTextSizeTitle(12)
+                    .setTextSizeTime(9)
+                    .setDrawableSize(15)
+                    ;
+        });
+        SmartRefreshLayout.setDefaultRefreshFooterCreator((context, layout) -> {
+            layout.setPrimaryColorsId(android.R.color.white, R.color.commonColorBrand);
+            return new ClassicsFooter(context)
+                    .setTextSizeTitle(12)
+                    .setDrawableSize(15);
+        });
     }
 
     public static Application getApplication() {

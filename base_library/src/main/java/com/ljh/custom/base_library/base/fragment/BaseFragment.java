@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +22,9 @@ import com.ljh.custom.cooldialog.CoolLoadingDialog;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * Desc: 不需要上报 PageInEvent/PageOutEvent 事件的Fragment 可继承此抽象类[比如非业务页面图片查看页面等等]
  * Created by ${junhua.li} on 2017/06/15 10:22.
@@ -32,7 +36,7 @@ public abstract class BaseFragment extends Fragment {
     protected Application mApplication = null;
     private View rootView = null; // Fragment的根View
     protected Handler mHandler = new Handler();
-//    protected Unbinder mUnBinder;
+    protected Unbinder mUnBinder;
 
     @Override
     public void onAttach(Context context) {
@@ -54,8 +58,7 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d("life_" + TAG, "onCreateView() ...");
         rootView = inflater.inflate(initLayout(), container, false);
-//        mUnBinder = ButterKnife.bind(this, rootView);
-//        ARouter.getInstance().inject(this);
+        mUnBinder = ButterKnife.bind(this, rootView);
         mCoolLoadingDialog = new CoolLoadingDialog.Builder(getContext()).setMessage("努力加载中").setCancelable(false).create();
         init();
         return rootView;
@@ -66,6 +69,10 @@ public abstract class BaseFragment extends Fragment {
      */
     public View getRootView() {
         return rootView;
+    }
+
+    protected <T extends View> T getView(@IdRes int id) {
+        return getRootView().findViewById(id);
     }
 
     @Override
@@ -107,7 +114,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroyView() {
         mHandler.removeCallbacksAndMessages(null);
-//        mUnBinder.unbind();
+        mUnBinder.unbind();
         super.onDestroyView();
         Log.d("life_" + TAG, "onDestoryView() ...");
     }
@@ -123,8 +130,6 @@ public abstract class BaseFragment extends Fragment {
         super.onDetach();
         Log.d("life_" + TAG, "onDetach() ...");
     }
-
-    protected abstract String getPageName();
 
     protected abstract int initLayout();
 

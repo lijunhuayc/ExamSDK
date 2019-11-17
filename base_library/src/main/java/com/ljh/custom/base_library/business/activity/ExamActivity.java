@@ -43,6 +43,7 @@ public class ExamActivity extends BaseActivity {
     int surfaceViewWidth;
     int surfaceViewHeight;
     boolean surfaceIsCreated = false;
+    //
 
     @Override
     protected int initLayout() {

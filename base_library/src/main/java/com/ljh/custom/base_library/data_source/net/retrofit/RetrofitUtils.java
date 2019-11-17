@@ -111,7 +111,7 @@ public class RetrofitUtils {
 
             Timber.d("RetrofitCallback.onResponse: result(处理后) = %s", baseResult);//需要Bean/Model类实现toString方法才能完全打印data字段的对象信息
             try {
-                if (baseResult.isReturnSuccess()) {
+                if (baseResult.isSuccess()) {
                     onGetPage(baseResult.getPage());
                     onSuccess(baseResult.getData());
                 } else {
@@ -124,7 +124,7 @@ public class RetrofitUtils {
 //                                    .navigation(BaseLibraryApplication.getApplication());
                             break;
                         default:
-                            onError(baseResult.getStatus(), baseResult.getMsg());
+                            onError(baseResult.getStatus(), baseResult.getErrMsg());
                             break;
                     }
                 }

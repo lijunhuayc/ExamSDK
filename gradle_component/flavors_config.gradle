@@ -6,7 +6,7 @@ android {
 
     productFlavors {
 //        //Tips: inside the module can't configure the productFlavors, otherwise the class & resourse can't be import.
-//        TEST200 { dimension "default" }
+        TEST200 { dimension "default" }
 //        TEST210 { dimension "default" }
         channel_mine { dimension "default" }//官方
 //        baidu { dimension "default" }
